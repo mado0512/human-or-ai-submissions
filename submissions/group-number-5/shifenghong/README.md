@@ -7,7 +7,7 @@ All of shifenghong's approach on training a *logistic regression* model will be 
 
 **Train a logistic regression model on embedded text on the *train_starter_2000.csv* dataset**
 
-> We are going to use [this embedding model]()
+> We are going to use [this embedding model](https://ollama.com/library/embeddinggemma-2:270m)
 
 train_starter.csv dataset is a stratified dataset from the complete *train.csv*. It has 2000 datapoints, split evenly between the two labels.
 
