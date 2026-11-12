@@ -2,9 +2,10 @@ import joblib
 from sklearn.metrics import roc_auc_score
 import json
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 
-with open("submissions/group-number-5/embed_svm/embeddings.json") as f:
+with open("submissions/group-number-5/embed_svm/small_embeddings.json") as f:
     data = json.load(f)
 
 starter_df = pd.read_csv("submissions/group-number-5/embed_svm/train_starter_2000.csv")
@@ -20,8 +21,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 model = joblib.load(
-    "submissions/group-number-5/embed_svm/SVM_starter_train"
+    "submissions/group-number-5/embed_svm/SVM_starter_small_train"
 )
+
+#weights = model.coef_
 
 predictions = model.predict_proba(X_test)[:, 1]
 

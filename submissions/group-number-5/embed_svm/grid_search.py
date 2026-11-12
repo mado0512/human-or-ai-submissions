@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 PATH = "submissions/group-number-5/embed_svm/"
 
-with open(PATH + "embeddings.json") as f:
+with open(PATH + "small_embeddings.json") as f:
     data = json.load(f)
 
 starter_df = pd.read_csv(PATH + "train_starter_2000.csv")
@@ -55,4 +55,4 @@ results_df = pd.DataFrame(results).sort_values(
 print("\nBest configurations:")
 print(results_df.to_string(index=False))
 
-results_df.to_csv(PATH + "grid_search_results.csv", index=False)
+results_df.to_csv(PATH + "small_grid_search_results.csv", index=False)
