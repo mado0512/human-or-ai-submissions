@@ -6,13 +6,14 @@ from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 import joblib
 
-with open("submissions/group-number-5/embed_svm/small_embeddings.json") as f:
+with open("submissions/group-number-5/embed_svm/embeddings.json") as f:
     data = json.load(f)
 
 starter_df = pd.read_csv("submissions/group-number-5/embed_svm/train_starter_2000.csv")
+full_train_df = pd.read_csv("submissions/group-number-5/embed_svm/train.csv")
 
-X = [data[str(i)]["embedding"] for i in starter_df["id"]]
-y = starter_df["label"].tolist()
+X = [data[str(i)]["embedding"] for i in full_train_df["id"]]
+y = full_train_df["label"].tolist()
 
 RANDOM_SEED = 42
 X_train, X_test, y_train, y_test = train_test_split(
@@ -31,7 +32,7 @@ def train_model(X_train, y_train, model_path, **hyperparameters):
 train_model(
     X_train,
     y_train,
-    "submissions/group-number-5/embed_svm/SVM_starter_small_train",
+    "submissions/group-number-5/embed_svm/SVM_train",
     kernel="poly",
     C=10.0,
     probability=True
